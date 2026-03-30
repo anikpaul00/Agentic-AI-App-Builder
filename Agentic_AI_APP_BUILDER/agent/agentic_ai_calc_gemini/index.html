@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="calculator-container">
+        <button id="theme-toggle" class="theme-toggle">Toggle Theme</button>
+        
+        <div class="display-screen">
+            <div id="previous-operand" class="previous-operand"></div>
+            <div id="current-operand" class="current-operand"></div>
+        </div>
+
+        <div class="buttons-grid">
+            <button data-clear class="span-two">AC</button>
+            <button data-delete>DEL</button>
+            <button data-operation>/</button>
+            
+            <button data-number>1</button>
+            <button data-number>2</button>
+            <button data-number>3</button>
+            <button data-operation>*</button>
+            
+            <button data-number>4</button>
+            <button data-number>5</button>
+            <button data-number>6</button>
+            <button data-operation>+</button>
+            
+            <button data-number>7</button>
+            <button data-number>8</button>
+            <button data-number>9</button>
+            <button data-operation>-</button>
+            
+            <button data-number>.</button>
+            <button data-number>0</button>
+            <button data-equals class="span-two">=</button>
+        </div>
+
+        <div class="history-panel">
+            <h2>History</h2>
+            <ul id="history-list"></ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

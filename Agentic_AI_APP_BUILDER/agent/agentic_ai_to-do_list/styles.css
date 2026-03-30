@@ -1,0 +1,116 @@
+/* Root CSS variables for colors and spacing */
+:root {
+  /* Colors */
+  --color-primary: #4a90e2;
+  --color-primary-dark: #357ab8;
+  --color-success: #28a745;
+  --color-danger: #dc3545;
+  --color-background: #f9f9f9;
+  --color-surface: #ffffff;
+  --color-text: #333333;
+  --color-muted: #777777;
+
+  /* Spacing (base unit = 8px) */
+  --spacing-xxs: 4px;
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+}
+
+/* Global resets and base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+/* .app container – centered with max-width */
+.app {
+  max-width: 600px;
+  margin: 0 auto; /* center horizontally */
+  padding: var(--spacing-lg);
+  background-color: var(--color-surface);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: var(--spacing-xs);
+}
+
+/* Input and button for task entry */
+.app input[type="text"] {
+  width: 70%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--color-muted);
+  border-radius: var(--spacing-xs);
+  font-size: 1rem;
+}
+
+.app button {
+  padding: var(--spacing-sm) var(--spacing-md);
+  margin-left: var(--spacing-xs);
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--spacing-xs);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.app button:hover {
+  background-color: var(--color-primary-dark);
+}
+
+/* Task list item */
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--color-muted);
+}
+
+.task-item span {
+  flex-grow: 1;
+  margin-right: var(--spacing-sm);
+}
+
+/* Completed task style */
+.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  body {
+    font-size: 14px;
+  }
+
+  .app input[type="text"] {
+    width: 100%;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .app button {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .task-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .task-item span {
+    margin-bottom: var(--spacing-xxs);
+  }
+}

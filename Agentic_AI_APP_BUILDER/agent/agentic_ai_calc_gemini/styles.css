@@ -1,0 +1,157 @@
+:root {
+    --bg-color: #f0f2f5;
+    --text-color: #333;
+    --calc-bg: rgba(255, 255, 255, 0.1);
+    --btn-bg: rgba(255, 255, 255, 0.2);
+    --btn-hover: rgba(255, 255, 255, 0.3);
+    --accent-color: #4caf50;
+    --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    --border-color: rgba(255, 255, 255, 0.18);
+    --display-bg: rgba(255, 255, 255, 0.2);
+}
+
+.dark-theme {
+    --bg-color: #1a1a1a;
+    --text-color: #f0f0f0;
+    --calc-bg: rgba(0, 0, 0, 0.3);
+    --btn-bg: rgba(255, 255, 255, 0.05);
+    --btn-hover: rgba(255, 255, 255, 0.1);
+    --accent-color: #81c784;
+    --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --display-bg: rgba(0, 0, 0, 0.4);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.calculator-container {
+    background: var(--calc-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: var(--shadow);
+    padding: 2rem;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.display-section {
+    background: var(--display-bg);
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: right;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#previous-operand {
+    font-size: 1rem;
+    opacity: 0.7;
+    margin-bottom: 5px;
+}
+
+#current-operand {
+    font-size: 2rem;
+    font-weight: bold;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+button {
+    padding: 15px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 10px;
+    background: var(--btn-bg);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    background: var(--btn-hover);
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.span-two {
+    grid-column: span 2;
+}
+
+button[data-operation], 
+button#equals {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+button#clear, button#delete {
+    background-color: rgba(255, 82, 82, 0.2);
+}
+
+.history-panel {
+    margin-top: 15px;
+    max-height: 150px;
+    overflow-y: auto;
+    padding: 10px;
+    background: var(--display-bg);
+    border-radius: 10px;
+    font-size: 0.9rem;
+}
+
+.history-item {
+    padding: 5px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Media Queries */
+@media (max-width: 480px) {
+    .calculator-container {
+        transform: scale(0.9);
+        max-width: 320px;
+        padding: 1.5rem;
+    }
+
+    .history-panel {
+        display: none; /* Hide history on very small screens to save space if needed */
+    }
+
+    #current-operand {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 350px) {
+    .calculator-container {
+        transform: scale(0.8);
+    }
+}
